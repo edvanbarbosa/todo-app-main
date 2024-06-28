@@ -1,27 +1,19 @@
 import Itask from "../../../../../pages/types/Itask";
 import Task from "./Task";
+import style from "./List.module.scss";
+import { Key } from "react";
 
-export default function List() {
-  const tasks: Itask[] = [
-    {
-      task: "Task 1",
-      completed: false,
-    },
-    {
-      task: "Task 2",
-      completed: true,
-    },
-    {
-      task: "Task 3",
-      completed: false,
-    },
-  ];
+interface propsType{
+  tasks: Itask[];
+}
+
+export default function List(tasks: propsType) {
 
   return (
-    <ul>
-      {tasks.map((task, index) => {
-        return <Task key={index} task={task.task} completed={task.completed} />;
-      })}
+    <ul className={`${style.listOfTasks}`}>
+      {tasks.tasks.map((task: Itask, index: Key) => (
+        <Task key={index} task={task.task} completed ={task.completed} />
+      ))}
     </ul>
   );
 }

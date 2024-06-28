@@ -1,0 +1,79 @@
+@import "../../../../../../pages/_vars.scss";
+
+.task {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 0.5fr auto 9fr;
+    gap: 15px;
+    background-color: $very-light-gray;
+    width: calc(100% - 40px);
+    padding: 20px 20px;
+    border-bottom: 1px solid $light-grayish-blue;
+    cursor: pointer;
+
+    .checkTask {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        font-size: 20px;
+        user-select: none;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 25px;
+            width: 25px;
+        }
+
+        .checkmark {
+            position: relative;
+            top: 0;
+            left: 0;
+            border: 1px solid $light-grayish-blue;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        input:checked ~ .checkmark {
+            box-shadow: none;
+            background: $check-background;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 0.25em;
+            height: 0.5em;
+            border: solid $very-light-gray;
+            border-width: 0 0.15em 0.15em 0;
+            transform: rotate(45deg);
+        }
+    }
+
+    p{
+        margin: 0;
+    }
+
+    &:hover{
+        .delete{
+            display: block;
+        }
+    }
+    .delete{
+        display: none;
+       justify-self: end;
+    }
+}

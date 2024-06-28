@@ -1,0 +1,16 @@
+@import "../../../pages/_vars.scss";
+
+.AppContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 600px;
+    gap: 20px;
+
+    &>p{
+        font-size: 1.2rem;
+        color: $dark-grayish-blue;
+    }
+}

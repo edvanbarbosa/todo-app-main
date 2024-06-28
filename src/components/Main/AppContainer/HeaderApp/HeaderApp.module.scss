@@ -1,0 +1,21 @@
+@import "../../../../pages/_vars.scss";
+
+.headerApp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    h1{
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: .5em;
+        color: $very-light-gray ;
+    }
+
+    img{
+       width: 40px;
+       height: 40px;
+       cursor: pointer;
+    }
+}

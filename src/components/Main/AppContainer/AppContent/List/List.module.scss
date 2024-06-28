@@ -1,0 +1,10 @@
+.listOfTasks{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    max-height: 50vh;
+    border-radius: 3px;
+    overflow-y: auto;
+}
