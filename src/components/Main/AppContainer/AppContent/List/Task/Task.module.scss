@@ -77,3 +77,9 @@
        justify-self: end;
     }
 }
+
+.taskCompleted{
+    p{
+        text-decoration: line-through;
+        color: $dark-grayish-blue;}
+}

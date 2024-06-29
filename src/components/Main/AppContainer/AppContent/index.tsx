@@ -3,38 +3,66 @@ import TodoInfo from "./TodoInfo";
 import style from "./AppContent.module.scss";
 import Itask from "../../../../pages/types/Itask";
 import { useState } from "react";
+import {v4 as uuidv4} from 'uuid';
 
 export default function AppContent() {
-    let disfragmentTask: string = "";  //Montar a task antes de adicionar 
+ 
+  const [task, setTask] = useState<string>(""); // [valor, função de atualização]
+  const [tasks=[], setTaskList] = useState<Itask[]>(); 
+  const [finished, setFinished] = useState<Itask>();
 
-  const [tasks = [], setTaskList] = useState<Itask[]>(); 
 
+  const addTask = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if(task === ""){
+      return;
+    }
+    setTaskList((oldTasks = [])=>[...oldTasks, {
+      task: task, 
+      completed: false,
+      id: uuidv4()
+    
+    }]);
+    setTask("");
+    console.log(tasks)
+  }
 
-  const addTask = (task: Itask) => { //Adicionar task
-    setTaskList([...tasks, task]);
+  const FinishOrResetTask = (taskCompleted: Itask, action:boolean) => { //taskCompleted é a task que foi completada, action é o valor que ela vai receber
+    setFinished(taskCompleted);
+    setTaskList((oldTasks) => oldTasks?.map((task)=>({
+      ...task,
+      completed: task.id === taskCompleted.id? action : task.completed,
+      
+    })) )
   };
+
+  const deleteTask = (taskToDelete: Itask) => {
+    setTaskList((oldTasks) => oldTasks?.filter((task) => task.id !== taskToDelete.id));
+  }
+
 
 
   return (
     <div className={style.AppContent}>
       <form onSubmit={(event)=>{
-        event.preventDefault();
-        addTask({task: disfragmentTask, completed: false});
-        let eventTarget = event.target as HTMLFormElement;
-        eventTarget.reset();
+        addTask(event);
       }}>
+
         <input
           className={style.IptCreateTodo}
+          required
           type="text"
           placeholder="Create a new todo..."
+          value={task}
           onChange={(event) => {
-            disfragmentTask = event.target.value;
+            setTask(event.target.value);
           }}
         />
+
       </form>
 
       <div className={`${style.ListWrapper}`}>
-        <List tasks={tasks} />
+        <List tasks={tasks} finishTask={FinishOrResetTask} deleteTask={deleteTask}/>
         <TodoInfo  listOfTasks={tasks} />
       </div>
     </div>
