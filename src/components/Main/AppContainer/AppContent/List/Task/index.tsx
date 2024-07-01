@@ -14,7 +14,8 @@ export default function Task({ task, completed,id,finishTask,deleteTask}: IProps
       <label className={`${style.checkTask}`}>
         <input
           type="checkbox"
-          onChange={()=>{
+          checked={completed}
+          onChange={(event)=>{
             finishTask({task: task, completed,id}, !completed) //Passando a task que foi completada e o valor que ela vai receber, se ela foi completada ou não
           }}
         />

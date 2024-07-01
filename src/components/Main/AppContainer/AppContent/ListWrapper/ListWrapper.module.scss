@@ -1,0 +1,9 @@
+@import "../../../../../pages/_vars.scss";
+
+.ListWrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-color: $very-light-gray;
+    border-radius: 3px;
+}

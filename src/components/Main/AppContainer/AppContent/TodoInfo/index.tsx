@@ -1,7 +1,13 @@
 import Itask from '../../../../../pages/types/Itask'
 import style from './TodoInfo.module.scss'
 
-export default function TodoInfo({listOfTasks}: {listOfTasks: Itask[]}){
+interface IProps{
+    listOfTasks: Itask[];
+    setFilter: React.Dispatch<React.SetStateAction<"all"|"active"|"completed">>;
+    setTaskList: React.Dispatch<React.SetStateAction<Itask[]>>
+}
+
+export default function TodoInfo({listOfTasks, setFilter, setTaskList}: IProps){
     return(
         <div className={`${style.todoInfo}`}>
             <p className="itens-left">{
@@ -9,12 +15,14 @@ export default function TodoInfo({listOfTasks}: {listOfTasks: Itask[]}){
             } Itens Left</p>
 
             <ul className={`${style.filter}`}> 
-                <li>All</li>
-                <li>Active</li>
-                <li>Completed</li>
+                <li onClick={()=> setFilter('all')}>All</li>
+                <li onClick={()=> setFilter('active')}>Active</li>
+                <li onClick={()=> setFilter('completed')}>Completed</li>
             </ul>
 
-            <button>Clear Complete</button>
+            <button onClick={()=> setTaskList(
+                (oldTasks) => oldTasks?.filter((task) => !task.completed) //Filtrar as tasks que não estão completas
+            ) }>Clear Complete</button>
         </div>
     )
 }
