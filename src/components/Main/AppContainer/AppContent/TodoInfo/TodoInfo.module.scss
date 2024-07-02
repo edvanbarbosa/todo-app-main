@@ -3,10 +3,9 @@
 .todoInfo{
     display: flex;
     justify-content: space-between;
-    background-color: $very-light-gray;
     width: calc(100% - 40px);
     padding: 0px 20px;
-    color: $dark-grayish-blue;
+    border-radius: 3px;
 
     .filter{
         display: flex;
@@ -16,6 +15,24 @@
         li{
             cursor: pointer;
 
+        }
+    }
+
+    button{
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        font-family: $Josefin-sans;
+    }
+}
+
+.todoInfoLight{
+    background-color: $very-light-gray;
+    color: $dark-grayish-blue;
+
+    .filter{
+        li{
             &:hover{
                 color: $bright-blue;
             }
@@ -23,11 +40,23 @@
     }
 
     button{
-        background-color: transparent;
-        border: none;
         color: $dark-grayish-blue;
-        font-size: 1rem;
-        cursor: pointer;
-        font-family: $Josefin-sans;
+    }
+}
+
+.todoInfoDark{
+    background-color: $very-dark-desaturated-blue;
+    color: $light-grayish-blue;
+
+    .filter{
+        li{
+            &:hover{
+                color: $bright-blue;
+            }
+        }
+    }
+
+    button{
+        color: $light-grayish-blue;
     }
 }

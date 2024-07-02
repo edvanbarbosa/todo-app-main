@@ -1,9 +1,13 @@
 import IconMoon from '../../../../assets/images/icon-moon.svg';
 import IconSun from '../../../../assets/images/icon-sun.svg'
 
-export default function ImgBg(){
+interface IProps{
+    setTheme: React.Dispatch<React.SetStateAction<'light'|'dark'>>,
+    themeAgo: 'light'| 'dark'
+}
+export default function ImgBg({setTheme,themeAgo}:IProps){
 
     return(
-        <img src={IconSun} alt='Mudar tema'/>
+        <img onClick={()=> {themeAgo==='light'?setTheme('dark'):setTheme('light'); console.log(themeAgo)} } src={ themeAgo==='light'?IconMoon:IconSun} alt='Mudar tema'/>
     )
 }

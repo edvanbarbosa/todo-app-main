@@ -6,13 +6,17 @@ import { useState } from "react";
 import Form from "./Form";
 import ListWrapper from "./ListWrapper";
 
-export default function AppContent() {
-  const [tasks=[], setTaskList] = useState<Itask[]>([]); 
+interface IProps {
+  theme: "light" | "dark";
+}
+
+export default function AppContent({ theme }: IProps) {
+  const [tasks = [], setTaskList] = useState<Itask[]>([]);
 
   return (
     <div className={style.AppContent}>
-      <Form setTaskList={setTaskList}/>
-      <ListWrapper tasks={tasks} setTaskList={setTaskList}/>
+      <Form theme={theme} setTaskList={setTaskList} />
+      <ListWrapper theme={theme} tasks={tasks} setTaskList={setTaskList} />
     </div>
   );
 }

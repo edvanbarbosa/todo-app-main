@@ -5,9 +5,10 @@ import Itask from "../../../../../pages/types/Itask";
 
 interface IProps{
   setTaskList: React.Dispatch<React.SetStateAction<Itask[]>>;
+  theme: "light" | "dark";
 }
 
-export default function Form({setTaskList}: IProps){
+export default function Form({setTaskList, theme}: IProps){
      
   const [task, setTask] = useState<string>(""); // [valor, função de atualização]
 
@@ -25,7 +26,7 @@ export default function Form({setTaskList}: IProps){
     setTask("");
   }
     return(
-        <form onSubmit={(event)=>{
+        <form className={`${style.form} ${theme==='light'?style.formLight:style.formDark}`} onSubmit={(event)=>{
             addTask(event);
           }}>
     

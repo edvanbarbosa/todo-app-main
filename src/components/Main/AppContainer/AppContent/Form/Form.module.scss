@@ -1,12 +1,28 @@
 @import "../../../../../pages/_vars.scss";
 
-.IptCreateTodo{
-    width: calc(100% - 40px);
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    font-size: 1.2rem;
-    padding: 0 20px;
-    outline: none;
-    font-family: $Josefin-sans;
+.form{
+    .IptCreateTodo{
+        width: calc(100% - 40px);
+        height: 50px;
+        border: none;
+        border-radius: 3px;
+        font-size: 1.2rem;
+        padding: 0 20px;
+        outline: none;
+        font-family: $Josefin-sans;
+    }
+}
+
+.formLight{
+    .IptCreateTodo{
+        background-color: $very-light-gray;
+        color: $dark-grayish-blue;
+    }
+}
+
+.formDark{
+    .IptCreateTodo{
+        background-color: $very-dark-desaturated-blue;
+        color: $light-grayish-blue;
+    }
 }

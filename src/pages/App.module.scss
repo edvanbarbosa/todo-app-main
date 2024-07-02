@@ -1,0 +1,19 @@
+@import './__vars.scss';
+
+.App {
+    display: flex;
+    height: 100vh;
+}
+
+.AppLight {
+  background-color: #f5f5f5;
+  
+}
+
+.AppDark{
+  background-color: $very-dark-blue;
+
+}
+
+  
+  

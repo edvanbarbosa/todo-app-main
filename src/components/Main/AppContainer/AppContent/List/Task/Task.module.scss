@@ -8,7 +8,6 @@
     background-color: $very-light-gray;
     width: calc(100% - 40px);
     padding: 20px 20px;
-    border-bottom: 1px solid $light-grayish-blue;
     cursor: pointer;
 
     .checkTask {
@@ -82,4 +81,17 @@
     p{
         text-decoration: line-through;
         color: $dark-grayish-blue;}
+}
+
+
+.taskLight{
+    background-color: $very-light-gray;
+    color: $dark-grayish-blue;
+    border-bottom: 1px solid $light-grayish-blue;
+}
+
+.taskDark{
+    background-color: $very-dark-desaturated-blue;
+    color: $light-grayish-blue;
+    border-bottom: 1px solid $very-dark-grayish-blue;
 }

@@ -11,6 +11,17 @@
 
     &>p{
         font-size: 1.2rem;
+    }
+}
+
+.AppContainerLight{
+    &>p{
+        color: $dark-grayish-blue;
+    }
+}
+
+.AppContainerDark{
+    &>p{
         color: $dark-grayish-blue;
     }
 }

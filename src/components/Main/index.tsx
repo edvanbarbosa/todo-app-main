@@ -1,10 +1,15 @@
 import AppContainer from "./AppContainer";
 import style from "./Main.module.scss";
 
-export default function Main(){
+interface IProps{
+    theme: 'light'| 'dark'
+    setTheme: React.Dispatch<React.SetStateAction<'light'|'dark'>>
+}
+
+export default function Main({theme, setTheme}:IProps){
     return(
         <main className={`${style.main}`}>
-            <AppContainer/>
+            <AppContainer theme={theme} setTheme={setTheme} />
         </main>
     )
 }

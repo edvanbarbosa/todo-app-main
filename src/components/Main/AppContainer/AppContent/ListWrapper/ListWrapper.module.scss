@@ -4,6 +4,13 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    background-color: $very-light-gray;
     border-radius: 3px;
+}
+
+.ListWrapperLight{
+    background-color: $very-light-gray;
+}
+
+.ListWrapperDark{
+    background-color: $very-dark-blue;
 }

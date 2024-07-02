@@ -8,6 +8,7 @@ interface propsType{
   listForRender: Itask[];
   deleteTask: (taskToDelete: Itask) => void;
   filter: 'all'|'active'|'completed';
+  theme: 'light'|'dark';
 }
 
 function filterInList(listForRender: Itask[], filter: 'all'|'active'|'completed'){ //Função para filtrar as tasks
@@ -23,14 +24,14 @@ function filterInList(listForRender: Itask[], filter: 'all'|'active'|'completed'
   }
 }
 
-export default function List({listForRender,finishTask,deleteTask, filter}: propsType) {
+export default function List({listForRender,finishTask,deleteTask, filter, theme}: propsType) {
  
 
   return (
     <ul className={`${style.listOfTasks}`}>
 
       {filterInList(listForRender, filter).map((task: Itask, index: Key) => (
-        <Task key={index} finishTask={finishTask} deleteTask={deleteTask} {...task} />
+        <Task theme={theme} key={index} finishTask={finishTask} deleteTask={deleteTask} {...task} />
       ))}
     </ul>
   );
