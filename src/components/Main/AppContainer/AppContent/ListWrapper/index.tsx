@@ -33,6 +33,7 @@ export default function ListWrapper({ tasks, setTaskList, theme }: IProps) {
   return (
     <div className={`${style.ListWrapper} ${theme==='light'?style.ListWrapperLight:style.ListWrapperDark}`}>
       <List
+        setListForRender={setTaskList}
         filter={filter}
         listForRender={tasks}
         finishTask={finishOrResetTask}
