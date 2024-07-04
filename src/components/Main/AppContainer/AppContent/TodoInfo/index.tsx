@@ -6,7 +6,7 @@ interface IProps {
   setFilter: React.Dispatch<
     React.SetStateAction<"all" | "active" | "completed">
   >;
-  setTaskList: React.Dispatch<React.SetStateAction<Itask[]>>;
+  setTaskList:  (tasks: () => Itask[]) => void;
   theme: "light" | "dark";
 }
 
@@ -35,7 +35,7 @@ export default function TodoInfo({
       <button
         onClick={() =>
           setTaskList(
-            (oldTasks) => oldTasks?.filter((task) => !task.completed) //Filtrar as tasks que não estão completas
+            (oldTasks = []) => oldTasks?.filter((task:Itask) => !task.completed) //Filtrar as tasks que não estão completas
           )
         }
       >

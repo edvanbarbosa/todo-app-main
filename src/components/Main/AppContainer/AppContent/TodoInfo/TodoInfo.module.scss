@@ -5,7 +5,7 @@
     justify-content: space-between;
     width: calc(100% - 40px);
     padding: 0px 20px;
-    border-radius: 3px;
+    border-radius: 0px 0px 3px 3px;
 
     .filter{
         display: flex;
@@ -58,5 +58,21 @@
 
     button{
         color: $light-grayish-blue;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .todoInfo{
+        width: calc(100% - 20px);
+        padding: 0px 10px;
+        font-size: .7em;
+        .filter{
+            
+            gap: 10px;
+            padding: 0;
+        }
+        &>button{
+            font-size: 0.7rem;
+        }
     }
 }

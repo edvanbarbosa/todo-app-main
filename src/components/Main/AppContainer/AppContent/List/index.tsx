@@ -7,7 +7,7 @@ import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 interface propsType {
   finishTask: (taskCompleted: Itask, action: boolean) => void;
   listForRender: Itask[];
-  setListForRender: React.Dispatch<React.SetStateAction<Itask[]>>;
+  setListForRender:  (tasks: () => Itask[]|Itask[]) => void;
   deleteTask: (taskToDelete: Itask) => void;
   filter: "all" | "active" | "completed";
   theme: "light" | "dark";
@@ -60,7 +60,7 @@ export default function List({
         result.destination.index
       );
     
-      setListForRender(items);
+      setListForRender(() =>items);
     }}>
       <Droppable droppableId="tasks" type="list" direction="vertical">
         {(provided) => (

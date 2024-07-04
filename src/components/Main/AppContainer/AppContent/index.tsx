@@ -11,12 +11,22 @@ interface IProps {
 }
 
 export default function AppContent({ theme }: IProps) {
-  const [tasks = [], setTaskList] = useState<Itask[]>([]);
+  const tasksInStorage = localStorage.getItem("tasks");
+  const [tasks = [], setTaskList] = useState<Itask[]>([...JSON.parse(tasksInStorage || "[]")]);
+  const tasksForStorage: Itask[] = tasks;
+
+  const setTasks = (taskss: ()=> Itask[]) => {
+    setTaskList(taskss);
+    tasksForStorage.push(...taskss());
+    localStorage.setItem("tasks", JSON.stringify(tasksForStorage));
+    
+  }
+  
 
   return (
     <div className={style.AppContent}>
-      <Form theme={theme} setTaskList={setTaskList} />
-      <ListWrapper theme={theme} tasks={tasks} setTaskList={setTaskList} />
+      <Form theme={theme} setTaskList={setTasks} />
+      <ListWrapper theme={theme} tasks={tasks} setTaskList={setTasks} />
     </div>
   );
 }

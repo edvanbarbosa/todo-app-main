@@ -4,12 +4,11 @@ import {v4 as uuidv4} from 'uuid';
 import Itask from "../../../../../pages/types/Itask";
 
 interface IProps{
-  setTaskList: React.Dispatch<React.SetStateAction<Itask[]>>;
+  setTaskList: (tasks: () => Itask[]) => void;
   theme: "light" | "dark";
 }
 
 export default function Form({setTaskList, theme}: IProps){
-     
   const [task, setTask] = useState<string>(""); // [valor, função de atualização]
 
   const addTask = (event: React.FormEvent<HTMLFormElement>) => {
