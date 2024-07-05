@@ -4,7 +4,7 @@ import {v4 as uuidv4} from 'uuid';
 import Itask from "../../../../../pages/types/Itask";
 
 interface IProps{
-  setTaskList: (tasks: () => Itask[]) => void;
+  setTaskList:  React.Dispatch<React.SetStateAction<Itask[]>>;
   theme: "light" | "dark";
 }
 

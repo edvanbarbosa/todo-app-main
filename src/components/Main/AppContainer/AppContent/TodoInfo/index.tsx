@@ -6,7 +6,7 @@ interface IProps {
   setFilter: React.Dispatch<
     React.SetStateAction<"all" | "active" | "completed">
   >;
-  setTaskList:  (tasks: () => Itask[]) => void;
+  setTaskList:  React.Dispatch<React.SetStateAction<Itask[]>>;
   theme: "light" | "dark";
 }
 

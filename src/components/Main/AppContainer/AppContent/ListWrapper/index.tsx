@@ -6,7 +6,7 @@ import style from "./ListWrapper.module.scss";
 
 interface IProps {
   tasks: Itask[];
-  setTaskList: (tasks: () => Itask[]) => void;
+  setTaskList: React.Dispatch<React.SetStateAction<Itask[]>>;
   theme: "light" | "dark";
 }
 
